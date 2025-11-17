@@ -31,4 +31,4 @@ stacking_ensemble:
     precision: 0.886720867208672
     recall: 0.8725333333333334
     roc_auc: 0.9852218785185185
-    threshold: 0.6327680820282572
+    threshold: 0.6327680820282557
