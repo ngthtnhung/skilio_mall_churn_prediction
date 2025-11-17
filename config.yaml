@@ -1,0 +1,107 @@
+# config.yaml
+# ---
+GENERAL:
+  RANDOM_STATE: 42
+  TARGET_COLUMN: churn_label
+  ID_COLUMN: user_id
+
+PATHS:
+  RAW_DATA: data/skiliomall_data.csv
+  OUTPUTS_DIR: outputs/
+  CHECKPOINT_DATA: data/processed_data_split.pkl
+
+DATA_SPLIT:
+  TRAIN_RATIO: 0.70
+  VAL_RATIO: 0.15
+  TEST_RATIO: 0.15
+
+# --- FEATURE ENGINEERING CONFIGURATION ---
+FEATURE_ENGINEERING:
+  NUMERICAL_FEATURES:
+    - age
+    - reg_days
+    - sessions_30d
+    - sessions_90d
+    - avg_session_duration_90d
+    - median_pages_viewed_30d
+    - search_queries_30d
+    - device_mix_ratio
+    - orders_30d
+    - orders_90d
+    - orders_2024
+    - aov_2024
+    - gmv_2024
+    - category_diversity_2024
+    - days_since_last_order
+    - discount_rate_2024
+    - refunds_count_2024
+    - refund_rate_2024
+    - support_tickets_2024
+    - avg_csat_2024
+    - emails_open_rate_90d
+    - emails_click_rate_90d
+    - review_count_2024
+    - avg_review_stars_2024
+    - rfm_recency
+    - rfm_frequency
+    - rfm_monetary
+  CATEGORICAL_FEATURES:
+    - country
+    - city
+    - app_version_major
+    - marketing_source
+
+CHURN_DEFINITION:
+  WINDOW_DAYS: 60
+
+# --- MODEL PARAMETERS ---
+MODEL_MAIN:
+  TYPE: LightGBM
+  HYPERPARAMETERS:
+    n_estimators: 1000
+    learning_rate: 0.03
+    max_depth: 7
+    class_weight: "balanced"
+
+# --- AVAILABLE MODELS CONFIGURATION ---
+MODELS:
+  LogisticRegression:
+    TYPE: LogisticRegression
+    HYPERPARAMETERS:
+      max_iter: 1000
+      solver: "lbfgs"
+      class_weight: "balanced"
+      random_state: 42
+  
+  RandomForest:
+    TYPE: RandomForest
+    HYPERPARAMETERS:
+      n_estimators: 500
+      max_depth: 15
+      min_samples_split: 10
+      min_samples_leaf: 5
+      class_weight: "balanced"
+      random_state: 42
+  
+  XGBoost:
+    TYPE: XGBoost
+    HYPERPARAMETERS:
+      n_estimators: 500
+      max_depth: 7
+      learning_rate: 0.05
+      scale_pos_weight: 3  # Xử lý imbalance (tỷ lệ âm/dương)
+      random_state: 42
+  
+  LightGBM:
+    TYPE: LightGBM
+    HYPERPARAMETERS:
+      n_estimators: 1000
+      learning_rate: 0.03
+      max_depth: 7
+      class_weight: "balanced"
+      random_state: 42
+
+# --- EVALUATION PARAMETERS ---
+EVALUATION:
+  REPORTING_THRESHOLD: 0.35 # (Ví dụ: sau khi tối ưu)
+  LIFT_GAIN_TOP_K: 0.20 # Yêu cầu báo cáo Top 20%

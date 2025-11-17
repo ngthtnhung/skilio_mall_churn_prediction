@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (uncomment if data should not be tracked)
+# data/*.csv
+
+# Model artifacts
+*.pkl
+*.joblib
+*.h5
+*.pt
+
+# Logs
+*.log
+
+# Outputs (uncomment if outputs should not be tracked)
+# outputs/*.png
+# outputs/*.yaml
+# outputs/*.txt
