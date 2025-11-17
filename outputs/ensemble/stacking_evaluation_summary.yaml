@@ -1,0 +1,34 @@
+stacking_ensemble:
+  base_models:
+    lgbm:
+      val_pr_auc: 0.9590512407635481
+      val_roc_auc: 0.9848419555555555
+    lr:
+      val_pr_auc: 0.965420744403944
+      val_roc_auc: 0.9871053748148148
+    rf:
+      val_pr_auc: 0.923198223405165
+      val_roc_auc: 0.9709258903703704
+    xgb:
+      val_pr_auc: 0.9568134409717933
+      val_roc_auc: 0.9840452266666666
+  config:
+    base_models_count: 4
+    cv_folds: 5
+    meta_learner: LogisticRegression
+    random_state: 42
+  test:
+    confusion_matrix:
+    - - 5416
+      - 209
+    - - 239
+      - 1636
+    f1: 0.8795698924731182
+    lift_at_top_20:
+      lift: 3.816
+      recall: 0.7632
+    pr_auc: 0.9576292213664557
+    precision: 0.886720867208672
+    recall: 0.8725333333333334
+    roc_auc: 0.9852218785185185
+    threshold: 0.6327680820282557
