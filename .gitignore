@@ -1,59 +1,26 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Jupyter Notebook
-.ipynb_checkpoints
-*.ipynb_checkpoints/
-
-# Virtual Environment
+# 1. Virtual Environment (Critical)
 venv/
-env/
-ENV/
-.venv
+.venv/
+__pycache__/
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+# 2. Large Data Files & Temporary Logs
+log.txt
+*.log
 
-# OS
-.DS_Store
-Thumbs.db
+# Raw data folder (if you have separate raw data)
+/raw_data/
 
-# Data (uncomment if data should not be tracked)
-# data/*.csv
-
-# Model artifacts
+# 3. Model/ML Artifacts & Outputs
+# Trained models (very large files)
 *.pkl
 *.joblib
 *.h5
-*.pt
 
-# Logs
-*.log
+# All outputs (can be regenerated)
+outputs/
+!outputs/.gitkeep
 
-# Outputs (uncomment if outputs should not be tracked)
-# outputs/*.png
-# outputs/*.yaml
-# outputs/*.txt
+# 4. IDE Configuration & System Files
+.vscode/
+.DS_Store
+Thumbs.db
