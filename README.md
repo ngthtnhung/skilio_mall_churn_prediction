@@ -20,12 +20,12 @@ cd skilio_mall_churn_prediction
 **Step 2: Create virtual environment (RECOMMENDED)**
 ```bash
 # Windows
-python -m venv venv
-venv\Scripts\activate
+python -m venv env
+env\Scripts\activate
 
 # macOS/Linux
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv env
+source env/bin/activate
 ```
 
 **Step 3: Install dependencies**
